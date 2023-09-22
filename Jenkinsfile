@@ -24,8 +24,8 @@ pipeline {
 			steps {
 				withDockerRegistry([credentialsId: 'dockercred', url: 'docker.io']) {
 					sh 'printenv'
-					sh 'docker build -t <docker-hub-user>/numeric-app:""$GIT_COMMIT"" .'
-					sh 'docker push <docker-hub-user>/numeric-app:""$GIT_COMMIT""'
+					sh 'podman build -t <docker-hub-user>/numeric-app:""$GIT_COMMIT"" .'
+					sh 'podman push <docker-hub-user>/numeric-app:""$GIT_COMMIT""'
 				}
 			}
 		}
